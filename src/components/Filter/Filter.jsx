@@ -1,4 +1,3 @@
-import { Component } from "react";
 import "./Filter.scss";
 
 const Filter = ({filterValue, onChange}) => (
