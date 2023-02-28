@@ -7,11 +7,12 @@ class ContactList extends Component {
         const contacts = this.props.contacts;
         return (
             <ul className="ContactList__list">
-                {contacts.map(({id, name, number}) => (
+                {contacts.map(({ id, name, number }) => (
                     <ContactListItem
                         key={id}
                         name={name}
                         number={number}
+                        onDeleteContact={this.props.onDeleteContact}
                     />
                 ))}
             </ul>

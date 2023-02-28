@@ -3,7 +3,7 @@ import "./ContactListItem.scss";
 
 class ContactsListItem extends Component {
     render() {
-        const {name, number} = this.props;
+        const { id, name, number, onDeleteContact } = this.props;
         return (
             <li className="ContactsListItem__item">
                 <p className="ContactsListItem__item-name">
@@ -12,7 +12,9 @@ class ContactsListItem extends Component {
                         {number}
                     </span>
                 </p>
-                <button>Delete</button>
+                <button type="button" onClick={() => onDeleteContact(id)}>
+                    Delete
+                </button>
             </li>
         );
     }

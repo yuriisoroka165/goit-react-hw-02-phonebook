@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./App.scss"
+import "./App.scss";
 import ContactForm from "./ContactForm/ContactForm";
 import Filter from "./Filter/Filter";
 import ContactList from "./ContactList/ContactList";
@@ -15,10 +15,30 @@ class App extends Component {
         filter: "",
     };
 
+    deleteContact = contactId => {
+        this.setState(prevState => {
+            return {
+                contacts: prevState.contacts.filter(
+                    contact => contact.id !== contactId
+                ),
+            };
+        });
+        console.log(this.state.contacts);
+    };
+
+    newContactAudit = newContact => {
+        return this.state.contacts.filter(
+            contact =>
+                contact.name.toLowerCase() === newContact.name.toLowerCase()
+        );
+    };
+
     contactFormSubmitHandler = newContact => {
-        this.setState(prevState => ({
-            contacts: [...prevState.contacts, newContact],
-        }));
+        this.newContactAudit(newContact).length > 0
+            ? alert(`${newContact.name} is already in contacts.`)
+            : this.setState(prevState => ({
+                  contacts: [...prevState.contacts, newContact],
+              }));
     };
 
     contactFilter = event => {
@@ -29,8 +49,8 @@ class App extends Component {
         const filterValueLowerCase = this.state.filter.toLowerCase();
 
         const visibleContacts = this.state.contacts.filter(contact =>
-            contact.name.toLowerCase().includes(filterValueLowerCase),
-            );
+            contact.name.toLowerCase().includes(filterValueLowerCase)
+        );
 
         return (
             <div className="App__container">
@@ -42,7 +62,10 @@ class App extends Component {
                     filter={this.state.filter}
                     onChange={this.contactFilter}
                 />
-                <ContactList contacts={visibleContacts} />
+                <ContactList
+                    onDeleteContact={this.deleteContact}
+                    contacts={visibleContacts}
+                />
             </div>
         );
     }
