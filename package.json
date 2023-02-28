@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://yuriisoroka165.github.io/goit-react-hw-02-phonebook/",
   "dependencies": {
+    "nanoid": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.58.3",

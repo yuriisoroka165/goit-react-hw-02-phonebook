@@ -1,1 +1,19 @@
-@import "styles/shared.scss";
+@import "../../styles/shared.scss";
+
+.ContactsListItem__item {
+    display: flex;
+    gap: 15px;
+}
+
+.ContactsListItem__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.ContactsListItem__item-name {
+    font-weight: 500;
+    color: $global-black-color;
+}
+
+.ContactsListItem__item-number {
+    margin-left: 5px;
+}

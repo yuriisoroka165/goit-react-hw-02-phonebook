@@ -1,1 +1,26 @@
-@import "styles/shared.scss";
+@import "../../styles/shared.scss";
+
+.Filter__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Filter__field-label {
+    font-weight: 700;
+    color: $global-black-color;
+}
+
+.Filter__field-input {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: $input-box-shadow;
+}
+
+.Filter__field-input:focus {
+    outline: 1px solid $global-green-color;
+}
