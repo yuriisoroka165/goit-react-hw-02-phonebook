@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import "./Filter.scss";
 
-const Filter = ({filterValue, onChange}) => (
+const Filter = ({ filterValue, onChange }) => (
     <>
         <label
             htmlFor="filter-field"
@@ -17,4 +18,10 @@ const Filter = ({filterValue, onChange}) => (
         </label>
     </>
 );
+
+Filter.propTypes = {
+    filterValue: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+};
+
 export default Filter;

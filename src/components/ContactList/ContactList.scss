@@ -1,7 +1,10 @@
 @import "../../styles/shared.scss";
 
 .ContactList__list {
+    width: 350px;
     list-style: none;
-    margin-left: 20px;
+    margin-left: 10px;
     padding: 0;
+    color: $global-black-color;
+
 }

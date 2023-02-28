@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    // outline: 1px solid blue;
+    margin-bottom: 40px;
 }
 
 .ContactForm__field {
@@ -22,7 +22,7 @@
 .ContactForm__input {
     padding-left: 10px;
     padding-right: 10px;
-    width: 250px;
+    width: 350px;
     height: 30px;
     border: none;
     border-radius: 5px;

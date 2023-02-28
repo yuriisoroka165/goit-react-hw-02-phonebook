@@ -3,6 +3,17 @@
 .ContactsListItem__item {
     display: flex;
     gap: 15px;
+    align-items: center;
+    // justify-content: space-between;
+}
+
+.ContactsListItem__item-circle {
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: $global-green-color;
+    border-radius: 50%;
 }
 
 .ContactsListItem__item:not(:last-child) {
@@ -16,4 +27,19 @@
 
 .ContactsListItem__item-number {
     margin-left: 5px;
+}
+
+.ContactsListItem__button {
+    width: 70px;
+    height: 30px;
+    margin-left: auto;
+    background-color: $global-white-color;
+    border: none;
+    border-radius: 5px;
+    box-shadow: $input-box-shadow;
+}
+
+.ContactsListItem__button:active {
+    background-color: $global-green-color;
+    color: $global-white-color;
 }
