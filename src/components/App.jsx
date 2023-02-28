@@ -46,9 +46,10 @@ class App extends Component {
     };
 
     render() {
-        const filterValueLowerCase = this.state.filter.toLowerCase();
+        const { contacts, filter } = this.state;
+        const filterValueLowerCase = filter.toLowerCase();
 
-        const visibleContacts = this.state.contacts.filter(contact =>
+        const visibleContacts = contacts.filter(contact =>
             contact.name.toLowerCase().includes(filterValueLowerCase)
         );
 
@@ -59,7 +60,7 @@ class App extends Component {
 
                 <h2>Contacts</h2>
                 <Filter
-                    filterValue={this.state.filter}
+                    filterValue={filter}
                     onChange={this.contactFilter}
                 />
                 <ContactList
