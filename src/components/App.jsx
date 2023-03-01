@@ -34,11 +34,15 @@ class App extends Component {
     };
 
     contactFormSubmitHandler = newContact => {
-        this.newContactAudit(newContact).length > 0
-            ? alert(`${newContact.name} is already in contacts.`)
-            : this.setState(prevState => ({
-                  contacts: [...prevState.contacts, newContact],
-              }));
+        if (this.newContactAudit(newContact).length > 0) {
+            alert(`${newContact.name} is already in contacts.`);
+            return false;
+        } else {
+            this.setState(prevState => ({
+                contacts: [...prevState.contacts, newContact],
+            }));
+            return true;
+        }
     };
 
     contactFilter = event => {
@@ -59,10 +63,7 @@ class App extends Component {
                 <ContactForm onSubmit={this.contactFormSubmitHandler} />
 
                 <h2>Contacts</h2>
-                <Filter
-                    filterValue={filter}
-                    onChange={this.contactFilter}
-                />
+                <Filter filterValue={filter} onChange={this.contactFilter} />
                 <ContactList
                     onDeleteContact={this.deleteContact}
                     contacts={visibleContacts}

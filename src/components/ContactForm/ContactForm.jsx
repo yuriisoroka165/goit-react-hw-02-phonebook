@@ -14,14 +14,16 @@ class ContactForm extends Component {
         this.setState({
             [name]: value,
         });
-        console.log(this.props);
     };
 
     handleSubmit = event => {
         const { name, number } = this.state;
         event.preventDefault();
-        this.props.onSubmit({ id: nanoid(), name, number });
-        this.reset();
+        if (this.props.onSubmit({ id: nanoid(), name, number })) {
+            this.reset();
+        }
+
+        
     };
 
     reset = () => {
